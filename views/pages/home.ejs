@@ -1,0 +1,68 @@
+<%- include('../partials/header') %>
+    <div class="Content">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped custom-table caption-top">
+                <caption class="m-0 pt-0">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="fs-2 m-0 fw-semibold">Movie Store</p>
+                        <a href="/addmovie" class="btn btn-dark">Add Movie</a>
+                    </div>
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Movie ID</th>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Stock</th>
+                        <th>Price</th>
+                        <th>Published @</th>
+                        <th>Author</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%movies && movies.forEach((movie, index)=> { %>
+                        <tr>
+                            <td>
+                                <%=index + 1%>
+                            </td>
+                            <td>
+                                <%=movie.movieid%>
+                            </td>
+                            <td>
+                                <%=movie.title%>
+                            </td>
+                            <td>
+                                <%=movie.movietype%>
+                            </td>
+                            <!-- <td>
+                                <%=movie.stock%>
+                            </td>
+                            <td>
+                                <%=movie.price%>
+                            </td>
+                            <td>
+
+                                <%=movie.publishdate.toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
+                                    day: 'numeric' }) %>
+                            </td>
+                            <td>
+                                <%=movie.author%>
+                            </td> -->
+                            <td>
+                                <a href="/editMovie/<%= movie._id %>" class="btn btn-outline-success">Edit</a>
+                                <a href="/deleteMovie/<%= movie._id %>" class="btn btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <%- include('../partials/footer') %>
