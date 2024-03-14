@@ -4,38 +4,58 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Add Movie</h3>
-                        <form class="requires-validation" method="post" novalidate>
+                        <h3>Edit Movie</h3>
+                        <form class="requires-validation" method="post" enctype="multipart/form-data" novalidate>
 
                             <div class="col-md-12">
-                                <input class="form-control" type="text" name="title" placeholder="Movie Title" required>
+                                <input class="form-control" type="text" name="title" placeholder="Movie Title"
+                                    value="<%= movies.title %>" required>
                                 <div class="valid-feedback">Title field is valid!</div>
                                 <div class="invalid-feedback">Title field cannot be blank!</div>
                             </div>
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="description"
-                                    placeholder="Movie description" required>
-                                <div class="valid-feedback">Title field is valid!</div>
-                                <div class="invalid-feedback">Title field cannot be blank!</div>
+                                    value="<%= movies.description %>" placeholder="Movie description" required>
+                                <div class="valid-feedback">Description field is valid!</div>
+                                <div class="invalid-feedback">Description field cannot be blank!</div>
                             </div>
 
                             <div class="col-md-12">
-                                <select class="form-select mt-3" name="booktype" required>
-                                    <option selected disabled value="">--Select Genres--</option>
-                                    <option value="Action">Action</option>
-                                    <option value="Adventure">Adventure</option>
-                                    <option value="Comedy">Comedy</option>
-                                    <option value="Drama">Drama</option>
-                                    <option value="Horror">Horror</option>
-                                    <option value="Fantasy">Fantasy</option>
-                                    <option value="Thriller">Thriller</option>
-                                    <option value="Mystery">Mystery</option>
-                                    <option value="Sci-Fi">Sci-Fi</option>
-                                    <option value="Romance">Romance</option>
-                                    <option value="Animation">Animation</option>
-                                    <option value="Musical">Musical</option>
-                                    <option value="Historical">Historical</option>
-                                    <option value="Documentary">Documentary</option>
+                                <select class="form-select mt-3" name="genre" required>
+                                    <option value="--Select Genre--" <%=movies.genre==="--Select Genre--" ? "selected"
+                                        : "" %>
+                                        >--Select Genre--</option>
+                                    <option value="Action" <%=movies.genre==="Action" ? "selected" : "" %>>Action
+                                    </option>
+                                    <option value="Adventure" <%=movies.genre==="Adventure" ? "selected" : "" %>
+                                        >Adventure
+                                    </option>
+                                    <option value="Comedy" <%=movies.genre==="Comedy" ? "selected" : "" %>>Comedy
+                                    </option>
+                                    <option value="Drama" <%=movies.genre==="Drama" ? "selected" : "" %>>Drama</option>
+                                    <option value="Horror" <%=movies.genre==="Horror" ? "selected" : "" %>>Horror
+                                    </option>
+                                    <option value="Fantasy" <%=movies.genre==="Fantasy" ? "selected" : "" %>>Fantasy
+                                    </option>
+                                    <option value="Thriller" <%=movies.genre==="Thriller" ? "selected" : "" %>>Thriller
+                                    </option>
+                                    <option value="Mystery" <%=movies.genre==="Mystery" ? "selected" : "" %>>Mystery
+                                    </option>
+                                    <option value="Sci-Fi" <%=movies.genre==="Sci-Fi" ? "selected" : "" %>>Sci-Fi
+                                    </option>
+                                    <option value="Romance" <%=movies.genre==="Romance" ? "selected" : "" %>>Romance
+                                    </option>
+                                    <option value="Animation" <%=movies.genre==="Animation" ? "selected" : "" %>
+                                        >Animation
+                                    </option>
+                                    <option value="Musical" <%=movies.genre==="Musical" ? "selected" : "" %>>Musical
+                                    </option>
+                                    <option value="Historical" <%=movies.genre==="Historical" ? "selected" : "" %>
+                                        >Historical
+                                    </option>
+                                    <option value="Documentary" <%=movies.genre==="Documentary" ? "selected" : "" %>
+                                        >Documentary
+                                    </option>
                                 </select>
                                 <div class="valid-feedback">You selected a Genres!</div>
                                 <div class="invalid-feedback">Please select a Genres!</div>
@@ -43,32 +63,40 @@
 
                             <div class="d-flex justify-content-between">
                                 <div class="col-md-6 pe-2">
-                                    <input class="form-control mt-3" type="number" min="1000" max="9999"
-                                        name="publishdate" placeholder="Enter year" required>
-                                    <div class="valid-feedback">Date field is valid!</div>
-                                    <div class="invalid-feedback">Date field is invalid!</div>
+                                    <input class="form-control mt-3" type="number" value="<%= movies.year %>" min="1000"
+                                        max="9999" name="year" placeholder="Enter year" required>
+                                    <div class="valid-feedback">Year field is valid!</div>
+                                    <div class="invalid-feedback">Year field is invalid!</div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <select class="form-select mt-3" name="rating" required>
-                                        <option selected disabled value="">--Select Rating--</option>
-                                        <option value="0.5">0.5</option>
-                                        <option value="1">1</option>
-                                        <option value="1.5">1.5</option>
-                                        <option value="2">2</option>
-                                        <option value="2.5">2.5</option>
-                                        <option value="3">3</option>
-                                        <option value="3.5">3.5</option>
-                                        <option value="4">4</option>
-                                        <option value="4.5">4.5</option>
-                                        <option value="5">5</option>
+                                        <option value="--rating--" <%=movies.rating==="--rating--" ? "selected" : "" %>
+                                            >--Rating--
+                                        </option>
+                                        <option value="0.5" <%=movies.rating==="0.5" ? "selected" : "" %>>0.5</option>
+                                        <option value="1" <%=movies.rating==="1" ? "selected" : "" %>>1</option>
+                                        <option value="1.5" <%=movies.rating==="1.5" ? "selected" : "" %>>1.5</option>
+                                        <option value="2" <%=movies.rating==="2" ? "selected" : "" %>>2</option>
+                                        <option value="2.5" <%=movies.rating==="2.5" ? "selected" : "" %>>2.5</option>
+                                        <option value="3" <%=movies.rating==="3" ? "selected" : "" %>>3</option>
+                                        <option value="3.5" <%=movies.rating==="3.5" ? "selected" : "" %>>3.5</option>
+                                        <option value="4" <%=movies.rating==="4" ? "selected" : "" %>>4</option>
+                                        <option value="4.5" <%=movies.rating==="4.5" ? "selected" : "" %>>4.5</option>
+                                        <option value="5" <%=movies.rating==="5" ? "selected" : "" %>>5</option>
                                     </select>
                                     <div class="valid-feedback">You selected a Rating!</div>
                                     <div class="invalid-feedback">Please select a Rating!</div>
                                 </div>
                             </div>
 
+                            <div class="col-md-12 mt-3">
+                                <input class="form-control" type="file" name="file" required>
+                                <div class="valid-feedback">Poster field is valid!</div>
+                                <div class="invalid-feedback">Poster field cannot be blank!</div>
+                            </div>
+
                             <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary">Add Movie</button>
+                                <button id="submit" type="submit" class="btn btn-primary">Edit Movie</button>
                             </div>
                         </form>
                     </div>

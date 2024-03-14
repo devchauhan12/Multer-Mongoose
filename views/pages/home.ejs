@@ -1,68 +1,47 @@
 <%- include('../partials/header') %>
-    <div class="Content">
+    <div class="container">
+        <div class="row">
+            <% movies.forEach((movie)=> { %>
+                <div class="cellphone-container">
+                    <div class="movie">
+                        <div class="movie-img"
+                            style="background-image: url(/<%= movie.movimage %>)">
+                        </div>
+                        <div class="text-movie-cont">
+                            <div class="mr-grid">
+                                <div class="col1">
+                                    <h1><%= movie.title %></h1>
+                                    <ul class="movie-gen">
+                                        <li><%= movie.rating %>⭐ /</li>
+                                        <li><%= movie.year %> /</li>
+                                        <li><%= movie.genre %></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mr-grid summary-row">
+                                <div class="col2">
+                                    <h5>SUMMARY</h5>
+                                </div>
+                            </div>
+                            <div class="mr-grid">
+                                <div class="col1">
+                                    <p class="movie-description"> <%= movie.description %></p>
+                                </div>
+                            </div>
 
-        <div class="table-responsive">
-
-            <table class="table table-striped custom-table caption-top">
-                <caption class="m-0 pt-0">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p class="fs-2 m-0 fw-semibold">Movie Store</p>
-                        <a href="/addmovie" class="btn btn-dark">Add Movie</a>
+                            <div class="mr-grid action-row row justify-content-around">
+                                <a href="/editmovie/<%= movie._id %>" class="watch-btn col-5 fs-5">
+                                    Edit Movie
+                                </a>
+                                <a href="/deletemovie/<%= movie._id %>" class="watch-btn col-5 fs-5">
+                                    Delete Movie
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </caption>
-                <thead>
-                    <tr>
-                        <th>Sr.</th>
-                        <th>Movie ID</th>
-                        <th>Title</th>
-                        <th>Type</th>
-                        <th>Stock</th>
-                        <th>Price</th>
-                        <th>Published @</th>
-                        <th>Author</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%movies && movies.forEach((movie, index)=> { %>
-                        <tr>
-                            <td>
-                                <%=index + 1%>
-                            </td>
-                            <td>
-                                <%=movie.movieid%>
-                            </td>
-                            <td>
-                                <%=movie.title%>
-                            </td>
-                            <td>
-                                <%=movie.movietype%>
-                            </td>
-                            <!-- <td>
-                                <%=movie.stock%>
-                            </td>
-                            <td>
-                                <%=movie.price%>
-                            </td>
-                            <td>
-
-                                <%=movie.publishdate.toLocaleDateString('en-US', { year: 'numeric' , month: 'long' ,
-                                    day: 'numeric' }) %>
-                            </td>
-                            <td>
-                                <%=movie.author%>
-                            </td> -->
-                            <td>
-                                <a href="/editMovie/<%= movie._id %>" class="btn btn-outline-success">Edit</a>
-                                <a href="/deleteMovie/<%= movie._id %>" class="btn btn-outline-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
+                </div>
+                <% }) %>
         </div>
-
-
     </div>
 
     <%- include('../partials/footer') %>

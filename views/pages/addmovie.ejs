@@ -5,7 +5,7 @@
                 <div class="form-content">
                     <div class="form-items">
                         <h3>Add Movie</h3>
-                        <form class="requires-validation" method="post" novalidate>
+                        <form class="requires-validation" method="post" enctype="multipart/form-data" novalidate>
 
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="title" placeholder="Movie Title" required>
@@ -15,12 +15,12 @@
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="description"
                                     placeholder="Movie description" required>
-                                <div class="valid-feedback">Title field is valid!</div>
-                                <div class="invalid-feedback">Title field cannot be blank!</div>
+                                <div class="valid-feedback">Description field is valid!</div>
+                                <div class="invalid-feedback">Description field cannot be blank!</div>
                             </div>
 
                             <div class="col-md-12">
-                                <select class="form-select mt-3" name="booktype" required>
+                                <select class="form-select mt-3" name="genre" required>
                                     <option selected disabled value="">--Select Genres--</option>
                                     <option value="Action">Action</option>
                                     <option value="Adventure">Adventure</option>
@@ -43,10 +43,10 @@
 
                             <div class="d-flex justify-content-between">
                                 <div class="col-md-6 pe-2">
-                                    <input class="form-control mt-3" type="number" min="1000" max="9999"
-                                        name="publishdate" placeholder="Enter year" required>
-                                    <div class="valid-feedback">Date field is valid!</div>
-                                    <div class="invalid-feedback">Date field is invalid!</div>
+                                    <input class="form-control mt-3" type="number" min="1000" max="9999" name="year"
+                                        placeholder="Enter year" required>
+                                    <div class="valid-feedback">Year field is valid!</div>
+                                    <div class="invalid-feedback">Year field is invalid!</div>
                                 </div>
                                 <div class="col-md-6 ps-2">
                                     <select class="form-select mt-3" name="rating" required>
@@ -65,6 +65,12 @@
                                     <div class="valid-feedback">You selected a Rating!</div>
                                     <div class="invalid-feedback">Please select a Rating!</div>
                                 </div>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <input class="form-control" type="file" name="file" required>
+                                <div class="valid-feedback">Poster field is valid!</div>
+                                <div class="invalid-feedback">Poster field cannot be blank!</div>
                             </div>
 
                             <div class="form-button mt-3">
